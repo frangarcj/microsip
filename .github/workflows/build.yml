@@ -15,6 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Install VS Build Tools
+      run: |
+        choco install visualstudio2017-workload-vctools -y
+        choco install visualstudio2017buildtools --package-parameters "--add Microsoft.VisualStudio.Component.VC.140 --includeRecommended" -y
+
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
 
